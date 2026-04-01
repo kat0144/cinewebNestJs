@@ -1,0 +1,101 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Get a free hosted Postgres database in seconds: `npx create-db`
+
+generator client {
+  provider = "prisma-client"
+  output          = "../src/generated/prisma"
+  moduleFormat    = "cjs"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum TipoIngresso {
+  INTEIRA
+  MEIA
+}
+
+enum Classificacao {
+  LIVRE
+  DEZ
+  DOZE
+  QUATORZE
+  DEZESSEIS
+  DEZOITO
+}
+
+model Genero {
+  id    Int     @default(autoincrement()) @id
+  nome  String  @unique 
+  filmes Filme[] @relation("FilmesGenero")
+}
+
+model Filme { 
+  id   Int    @default(autoincrement()) @id
+  titulo   String 
+  sinopse  String
+  duracao  Int
+  dataInicioExibicao  DateTime 
+  dataFinalExibicao   DateTime
+  elenco  String? 
+  genero Genero[] @relation("FilmesGenero") 
+  classificacaoEtaria Classificacao
+  sessoes Sessao[]
+}
+
+model Sala {
+  id   Int    @default(autoincrement()) @id
+  identificacao  String
+  capacidade Int 
+
+  sessoes Sessao[]
+}
+
+model Sessao {
+  id   Int    @default(autoincrement()) @id
+  inicioExibicao DateTime
+  filme Filme @relation(fields: [filmeId], references: [id])
+  filmeId Int 
+
+  sala Sala @relation(fields: [salaId], references: [id])
+  salaId Int 
+
+  ingressos Ingresso[]
+}
+
+model Ingresso { 
+  id   Int    @default(autoincrement()) @id
+  tipo TipoIngresso
+  valorPago Decimal 
+
+  sessao    Sessao   @relation(fields: [sessaoId], references: [id])
+  sessaoId  Int
+
+  pedido    Pedido   @relation(fields: [pedidoId], references: [id])
+  pedidoId  Int
+}
+
+model LancheCombo {
+  id   Int    @default(autoincrement()) @id
+  nome String
+  descricao String
+  preco Decimal
+  qtdItens Int 
+  total Decimal
+  
+  pedido Pedido @relation(fields: [pedidoId], references: [id])
+  pedidoId Int
+}
+
+model Pedido {
+  id   Int    @default(autoincrement()) @id
+  qtdInteira Int?
+  qtdMeia Int?
+  ingressos Ingresso[]
+  lanches LancheCombo[]
+  dataHora DateTime  @default(now())
+  valorTotal Decimal
+}
