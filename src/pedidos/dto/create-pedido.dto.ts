@@ -1,4 +1,4 @@
-import { IsNumber, IsInt, IsOptional, ValidateNested, IsArray, IsPositive } from 'class-validator';
+import { IsOptional, ValidateNested, IsArray, IsPositive } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
 import { CreateLanchDto } from '../../lanches/dto/create-lanch.dto';
