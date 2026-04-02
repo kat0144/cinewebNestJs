@@ -385,13 +385,13 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   Genero: 'Genero',
-  ClassificacaoEtaria: 'ClassificacaoEtaria',
   Filme: 'Filme',
   Sala: 'Sala',
   Sessao: 'Sessao',
   Ingresso: 'Ingresso',
   LancheCombo: 'LancheCombo',
-  Pedido: 'Pedido'
+  Pedido: 'Pedido',
+  PrecoBase: 'PrecoBase'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +407,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "genero" | "classificacaoEtaria" | "filme" | "sala" | "sessao" | "ingresso" | "lancheCombo" | "pedido"
+    modelProps: "genero" | "filme" | "sala" | "sessao" | "ingresso" | "lancheCombo" | "pedido" | "precoBase"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -482,80 +482,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         count: {
           args: Prisma.GeneroCountArgs<ExtArgs>
           result: runtime.Types.Utils.Optional<Prisma.GeneroCountAggregateOutputType> | number
-        }
-      }
-    }
-    ClassificacaoEtaria: {
-      payload: Prisma.$ClassificacaoEtariaPayload<ExtArgs>
-      fields: Prisma.ClassificacaoEtariaFieldRefs
-      operations: {
-        findUnique: {
-          args: Prisma.ClassificacaoEtariaFindUniqueArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload> | null
-        }
-        findUniqueOrThrow: {
-          args: Prisma.ClassificacaoEtariaFindUniqueOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        findFirst: {
-          args: Prisma.ClassificacaoEtariaFindFirstArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload> | null
-        }
-        findFirstOrThrow: {
-          args: Prisma.ClassificacaoEtariaFindFirstOrThrowArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        findMany: {
-          args: Prisma.ClassificacaoEtariaFindManyArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>[]
-        }
-        create: {
-          args: Prisma.ClassificacaoEtariaCreateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        createMany: {
-          args: Prisma.ClassificacaoEtariaCreateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        createManyAndReturn: {
-          args: Prisma.ClassificacaoEtariaCreateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>[]
-        }
-        delete: {
-          args: Prisma.ClassificacaoEtariaDeleteArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        update: {
-          args: Prisma.ClassificacaoEtariaUpdateArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        deleteMany: {
-          args: Prisma.ClassificacaoEtariaDeleteManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateMany: {
-          args: Prisma.ClassificacaoEtariaUpdateManyArgs<ExtArgs>
-          result: BatchPayload
-        }
-        updateManyAndReturn: {
-          args: Prisma.ClassificacaoEtariaUpdateManyAndReturnArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>[]
-        }
-        upsert: {
-          args: Prisma.ClassificacaoEtariaUpsertArgs<ExtArgs>
-          result: runtime.Types.Utils.PayloadToResult<Prisma.$ClassificacaoEtariaPayload>
-        }
-        aggregate: {
-          args: Prisma.ClassificacaoEtariaAggregateArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.AggregateClassificacaoEtaria>
-        }
-        groupBy: {
-          args: Prisma.ClassificacaoEtariaGroupByArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ClassificacaoEtariaGroupByOutputType>[]
-        }
-        count: {
-          args: Prisma.ClassificacaoEtariaCountArgs<ExtArgs>
-          result: runtime.Types.Utils.Optional<Prisma.ClassificacaoEtariaCountAggregateOutputType> | number
         }
       }
     }
@@ -1003,6 +929,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    PrecoBase: {
+      payload: Prisma.$PrecoBasePayload<ExtArgs>
+      fields: Prisma.PrecoBaseFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.PrecoBaseFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.PrecoBaseFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        findFirst: {
+          args: Prisma.PrecoBaseFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.PrecoBaseFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        findMany: {
+          args: Prisma.PrecoBaseFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>[]
+        }
+        create: {
+          args: Prisma.PrecoBaseCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        createMany: {
+          args: Prisma.PrecoBaseCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.PrecoBaseCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>[]
+        }
+        delete: {
+          args: Prisma.PrecoBaseDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        update: {
+          args: Prisma.PrecoBaseUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        deleteMany: {
+          args: Prisma.PrecoBaseDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.PrecoBaseUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.PrecoBaseUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>[]
+        }
+        upsert: {
+          args: Prisma.PrecoBaseUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$PrecoBasePayload>
+        }
+        aggregate: {
+          args: Prisma.PrecoBaseAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregatePrecoBase>
+        }
+        groupBy: {
+          args: Prisma.PrecoBaseGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrecoBaseGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.PrecoBaseCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.PrecoBaseCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1050,14 +1050,6 @@ export const GeneroScalarFieldEnum = {
 export type GeneroScalarFieldEnum = (typeof GeneroScalarFieldEnum)[keyof typeof GeneroScalarFieldEnum]
 
 
-export const ClassificacaoEtariaScalarFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type ClassificacaoEtariaScalarFieldEnum = (typeof ClassificacaoEtariaScalarFieldEnum)[keyof typeof ClassificacaoEtariaScalarFieldEnum]
-
-
 export const FilmeScalarFieldEnum = {
   id: 'id',
   titulo: 'titulo',
@@ -1066,7 +1058,7 @@ export const FilmeScalarFieldEnum = {
   dataInicioExibicao: 'dataInicioExibicao',
   dataFinalExibicao: 'dataFinalExibicao',
   elenco: 'elenco',
-  classificacaoEtariaId: 'classificacaoEtariaId'
+  classificacaoEtaria: 'classificacaoEtaria'
 } as const
 
 export type FilmeScalarFieldEnum = (typeof FilmeScalarFieldEnum)[keyof typeof FilmeScalarFieldEnum]
@@ -1124,6 +1116,16 @@ export const PedidoScalarFieldEnum = {
 } as const
 
 export type PedidoScalarFieldEnum = (typeof PedidoScalarFieldEnum)[keyof typeof PedidoScalarFieldEnum]
+
+
+export const PrecoBaseScalarFieldEnum = {
+  id: 'id',
+  valorInteira: 'valorInteira',
+  valorMeia: 'valorMeia',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type PrecoBaseScalarFieldEnum = (typeof PrecoBaseScalarFieldEnum)[keyof typeof PrecoBaseScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1195,6 +1197,34 @@ export type DateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel
  * Reference to a field of type 'DateTime[]'
  */
 export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'DateTime[]'>
+    
+
+
+/**
+ * Reference to a field of type 'Classificacao'
+ */
+export type EnumClassificacaoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Classificacao'>
+    
+
+
+/**
+ * Reference to a field of type 'Classificacao[]'
+ */
+export type ListEnumClassificacaoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Classificacao[]'>
+    
+
+
+/**
+ * Reference to a field of type 'TipoIngresso'
+ */
+export type EnumTipoIngressoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoIngresso'>
+    
+
+
+/**
+ * Reference to a field of type 'TipoIngresso[]'
+ */
+export type ListEnumTipoIngressoFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'TipoIngresso[]'>
     
 
 
@@ -1321,13 +1351,13 @@ export type PrismaClientOptions = ({
 }
 export type GlobalOmitConfig = {
   genero?: Prisma.GeneroOmit
-  classificacaoEtaria?: Prisma.ClassificacaoEtariaOmit
   filme?: Prisma.FilmeOmit
   sala?: Prisma.SalaOmit
   sessao?: Prisma.SessaoOmit
   ingresso?: Prisma.IngressoOmit
   lancheCombo?: Prisma.LancheComboOmit
   pedido?: Prisma.PedidoOmit
+  precoBase?: Prisma.PrecoBaseOmit
 }
 
 /* Types for Logging */

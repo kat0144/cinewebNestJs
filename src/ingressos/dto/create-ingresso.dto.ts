@@ -1,17 +1,22 @@
-import { IsString, IsNotEmpty, IsOptional, IsArray, IsNumber, IsDate, ValidateNested, IsInt} from 'class-validator'
+import { IsNotEmpty, IsNumber, IsEnum, IsInt} from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger';
-import { Type } from 'class-transformer';
+import { TipoIngresso } from '../../generated/prisma/enums'; 
 
 
 export class CreateIngressoDto {
+
+    @ApiProperty({ enum: TipoIngresso, example: 'INTEIRA' })
+    @IsEnum(TipoIngresso)
+    tipo: TipoIngresso;
+
     @ApiProperty({
-        example: 'Inteira ou Meia',
-        description: 'Indica o tipo de ingresso'
+        example: 'Id da Sessão',
+        description: 'Id que corresponde a sessão'
 
     })
-    @IsString()
-    @IsNotEmpty()
-    tipo: string;
 
-    
+    @IsInt()
+    @IsNotEmpty() 
+    sessaoId: number;
+
 }

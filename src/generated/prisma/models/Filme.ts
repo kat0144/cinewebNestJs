@@ -29,13 +29,11 @@ export type AggregateFilme = {
 export type FilmeAvgAggregateOutputType = {
   id: number | null
   duracao: number | null
-  classificacaoEtariaId: number | null
 }
 
 export type FilmeSumAggregateOutputType = {
   id: number | null
   duracao: number | null
-  classificacaoEtariaId: number | null
 }
 
 export type FilmeMinAggregateOutputType = {
@@ -46,7 +44,7 @@ export type FilmeMinAggregateOutputType = {
   dataInicioExibicao: Date | null
   dataFinalExibicao: Date | null
   elenco: string | null
-  classificacaoEtariaId: number | null
+  classificacaoEtaria: $Enums.Classificacao | null
 }
 
 export type FilmeMaxAggregateOutputType = {
@@ -57,7 +55,7 @@ export type FilmeMaxAggregateOutputType = {
   dataInicioExibicao: Date | null
   dataFinalExibicao: Date | null
   elenco: string | null
-  classificacaoEtariaId: number | null
+  classificacaoEtaria: $Enums.Classificacao | null
 }
 
 export type FilmeCountAggregateOutputType = {
@@ -68,7 +66,7 @@ export type FilmeCountAggregateOutputType = {
   dataInicioExibicao: number
   dataFinalExibicao: number
   elenco: number
-  classificacaoEtariaId: number
+  classificacaoEtaria: number
   _all: number
 }
 
@@ -76,13 +74,11 @@ export type FilmeCountAggregateOutputType = {
 export type FilmeAvgAggregateInputType = {
   id?: true
   duracao?: true
-  classificacaoEtariaId?: true
 }
 
 export type FilmeSumAggregateInputType = {
   id?: true
   duracao?: true
-  classificacaoEtariaId?: true
 }
 
 export type FilmeMinAggregateInputType = {
@@ -93,7 +89,7 @@ export type FilmeMinAggregateInputType = {
   dataInicioExibicao?: true
   dataFinalExibicao?: true
   elenco?: true
-  classificacaoEtariaId?: true
+  classificacaoEtaria?: true
 }
 
 export type FilmeMaxAggregateInputType = {
@@ -104,7 +100,7 @@ export type FilmeMaxAggregateInputType = {
   dataInicioExibicao?: true
   dataFinalExibicao?: true
   elenco?: true
-  classificacaoEtariaId?: true
+  classificacaoEtaria?: true
 }
 
 export type FilmeCountAggregateInputType = {
@@ -115,7 +111,7 @@ export type FilmeCountAggregateInputType = {
   dataInicioExibicao?: true
   dataFinalExibicao?: true
   elenco?: true
-  classificacaoEtariaId?: true
+  classificacaoEtaria?: true
   _all?: true
 }
 
@@ -213,7 +209,7 @@ export type FilmeGroupByOutputType = {
   dataInicioExibicao: Date
   dataFinalExibicao: Date
   elenco: string | null
-  classificacaoEtariaId: number
+  classificacaoEtaria: $Enums.Classificacao
   _count: FilmeCountAggregateOutputType | null
   _avg: FilmeAvgAggregateOutputType | null
   _sum: FilmeSumAggregateOutputType | null
@@ -247,9 +243,8 @@ export type FilmeWhereInput = {
   dataInicioExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   dataFinalExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   elenco?: Prisma.StringNullableFilter<"Filme"> | string | null
-  classificacaoEtariaId?: Prisma.IntFilter<"Filme"> | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFilter<"Filme"> | $Enums.Classificacao
   genero?: Prisma.GeneroListRelationFilter
-  classificacaoEtaria?: Prisma.XOR<Prisma.ClassificacaoEtariaScalarRelationFilter, Prisma.ClassificacaoEtariaWhereInput>
   sessoes?: Prisma.SessaoListRelationFilter
 }
 
@@ -261,9 +256,8 @@ export type FilmeOrderByWithRelationInput = {
   dataInicioExibicao?: Prisma.SortOrder
   dataFinalExibicao?: Prisma.SortOrder
   elenco?: Prisma.SortOrderInput | Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
+  classificacaoEtaria?: Prisma.SortOrder
   genero?: Prisma.GeneroOrderByRelationAggregateInput
-  classificacaoEtaria?: Prisma.ClassificacaoEtariaOrderByWithRelationInput
   sessoes?: Prisma.SessaoOrderByRelationAggregateInput
 }
 
@@ -278,9 +272,8 @@ export type FilmeWhereUniqueInput = Prisma.AtLeast<{
   dataInicioExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   dataFinalExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   elenco?: Prisma.StringNullableFilter<"Filme"> | string | null
-  classificacaoEtariaId?: Prisma.IntFilter<"Filme"> | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFilter<"Filme"> | $Enums.Classificacao
   genero?: Prisma.GeneroListRelationFilter
-  classificacaoEtaria?: Prisma.XOR<Prisma.ClassificacaoEtariaScalarRelationFilter, Prisma.ClassificacaoEtariaWhereInput>
   sessoes?: Prisma.SessaoListRelationFilter
 }, "id">
 
@@ -292,7 +285,7 @@ export type FilmeOrderByWithAggregationInput = {
   dataInicioExibicao?: Prisma.SortOrder
   dataFinalExibicao?: Prisma.SortOrder
   elenco?: Prisma.SortOrderInput | Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
+  classificacaoEtaria?: Prisma.SortOrder
   _count?: Prisma.FilmeCountOrderByAggregateInput
   _avg?: Prisma.FilmeAvgOrderByAggregateInput
   _max?: Prisma.FilmeMaxOrderByAggregateInput
@@ -311,7 +304,7 @@ export type FilmeScalarWhereWithAggregatesInput = {
   dataInicioExibicao?: Prisma.DateTimeWithAggregatesFilter<"Filme"> | Date | string
   dataFinalExibicao?: Prisma.DateTimeWithAggregatesFilter<"Filme"> | Date | string
   elenco?: Prisma.StringNullableWithAggregatesFilter<"Filme"> | string | null
-  classificacaoEtariaId?: Prisma.IntWithAggregatesFilter<"Filme"> | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoWithAggregatesFilter<"Filme"> | $Enums.Classificacao
 }
 
 export type FilmeCreateInput = {
@@ -321,8 +314,8 @@ export type FilmeCreateInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
+  classificacaoEtaria: $Enums.Classificacao
   genero?: Prisma.GeneroCreateNestedManyWithoutFilmesInput
-  classificacaoEtaria: Prisma.ClassificacaoEtariaCreateNestedOneWithoutFilmesInput
   sessoes?: Prisma.SessaoCreateNestedManyWithoutFilmeInput
 }
 
@@ -334,7 +327,7 @@ export type FilmeUncheckedCreateInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
-  classificacaoEtariaId: number
+  classificacaoEtaria: $Enums.Classificacao
   genero?: Prisma.GeneroUncheckedCreateNestedManyWithoutFilmesInput
   sessoes?: Prisma.SessaoUncheckedCreateNestedManyWithoutFilmeInput
 }
@@ -346,8 +339,8 @@ export type FilmeUpdateInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   genero?: Prisma.GeneroUpdateManyWithoutFilmesNestedInput
-  classificacaoEtaria?: Prisma.ClassificacaoEtariaUpdateOneRequiredWithoutFilmesNestedInput
   sessoes?: Prisma.SessaoUpdateManyWithoutFilmeNestedInput
 }
 
@@ -359,7 +352,7 @@ export type FilmeUncheckedUpdateInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtariaId?: Prisma.IntFieldUpdateOperationsInput | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   genero?: Prisma.GeneroUncheckedUpdateManyWithoutFilmesNestedInput
   sessoes?: Prisma.SessaoUncheckedUpdateManyWithoutFilmeNestedInput
 }
@@ -372,7 +365,7 @@ export type FilmeCreateManyInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
-  classificacaoEtariaId: number
+  classificacaoEtaria: $Enums.Classificacao
 }
 
 export type FilmeUpdateManyMutationInput = {
@@ -382,6 +375,7 @@ export type FilmeUpdateManyMutationInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
 }
 
 export type FilmeUncheckedUpdateManyInput = {
@@ -392,7 +386,7 @@ export type FilmeUncheckedUpdateManyInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtariaId?: Prisma.IntFieldUpdateOperationsInput | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
 }
 
 export type FilmeListRelationFilter = {
@@ -413,13 +407,12 @@ export type FilmeCountOrderByAggregateInput = {
   dataInicioExibicao?: Prisma.SortOrder
   dataFinalExibicao?: Prisma.SortOrder
   elenco?: Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
+  classificacaoEtaria?: Prisma.SortOrder
 }
 
 export type FilmeAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   duracao?: Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
 }
 
 export type FilmeMaxOrderByAggregateInput = {
@@ -430,7 +423,7 @@ export type FilmeMaxOrderByAggregateInput = {
   dataInicioExibicao?: Prisma.SortOrder
   dataFinalExibicao?: Prisma.SortOrder
   elenco?: Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
+  classificacaoEtaria?: Prisma.SortOrder
 }
 
 export type FilmeMinOrderByAggregateInput = {
@@ -441,13 +434,12 @@ export type FilmeMinOrderByAggregateInput = {
   dataInicioExibicao?: Prisma.SortOrder
   dataFinalExibicao?: Prisma.SortOrder
   elenco?: Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
+  classificacaoEtaria?: Prisma.SortOrder
 }
 
 export type FilmeSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   duracao?: Prisma.SortOrder
-  classificacaoEtariaId?: Prisma.SortOrder
 }
 
 export type FilmeScalarRelationFilter = {
@@ -493,54 +485,16 @@ export type FilmeUncheckedUpdateManyWithoutGeneroNestedInput = {
   deleteMany?: Prisma.FilmeScalarWhereInput | Prisma.FilmeScalarWhereInput[]
 }
 
-export type FilmeCreateNestedManyWithoutClassificacaoEtariaInput = {
-  create?: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput> | Prisma.FilmeCreateWithoutClassificacaoEtariaInput[] | Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput[]
-  connectOrCreate?: Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput | Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput[]
-  createMany?: Prisma.FilmeCreateManyClassificacaoEtariaInputEnvelope
-  connect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-}
-
-export type FilmeUncheckedCreateNestedManyWithoutClassificacaoEtariaInput = {
-  create?: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput> | Prisma.FilmeCreateWithoutClassificacaoEtariaInput[] | Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput[]
-  connectOrCreate?: Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput | Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput[]
-  createMany?: Prisma.FilmeCreateManyClassificacaoEtariaInputEnvelope
-  connect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-}
-
-export type FilmeUpdateManyWithoutClassificacaoEtariaNestedInput = {
-  create?: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput> | Prisma.FilmeCreateWithoutClassificacaoEtariaInput[] | Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput[]
-  connectOrCreate?: Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput | Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput[]
-  upsert?: Prisma.FilmeUpsertWithWhereUniqueWithoutClassificacaoEtariaInput | Prisma.FilmeUpsertWithWhereUniqueWithoutClassificacaoEtariaInput[]
-  createMany?: Prisma.FilmeCreateManyClassificacaoEtariaInputEnvelope
-  set?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  disconnect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  delete?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  connect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  update?: Prisma.FilmeUpdateWithWhereUniqueWithoutClassificacaoEtariaInput | Prisma.FilmeUpdateWithWhereUniqueWithoutClassificacaoEtariaInput[]
-  updateMany?: Prisma.FilmeUpdateManyWithWhereWithoutClassificacaoEtariaInput | Prisma.FilmeUpdateManyWithWhereWithoutClassificacaoEtariaInput[]
-  deleteMany?: Prisma.FilmeScalarWhereInput | Prisma.FilmeScalarWhereInput[]
-}
-
-export type FilmeUncheckedUpdateManyWithoutClassificacaoEtariaNestedInput = {
-  create?: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput> | Prisma.FilmeCreateWithoutClassificacaoEtariaInput[] | Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput[]
-  connectOrCreate?: Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput | Prisma.FilmeCreateOrConnectWithoutClassificacaoEtariaInput[]
-  upsert?: Prisma.FilmeUpsertWithWhereUniqueWithoutClassificacaoEtariaInput | Prisma.FilmeUpsertWithWhereUniqueWithoutClassificacaoEtariaInput[]
-  createMany?: Prisma.FilmeCreateManyClassificacaoEtariaInputEnvelope
-  set?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  disconnect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  delete?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  connect?: Prisma.FilmeWhereUniqueInput | Prisma.FilmeWhereUniqueInput[]
-  update?: Prisma.FilmeUpdateWithWhereUniqueWithoutClassificacaoEtariaInput | Prisma.FilmeUpdateWithWhereUniqueWithoutClassificacaoEtariaInput[]
-  updateMany?: Prisma.FilmeUpdateManyWithWhereWithoutClassificacaoEtariaInput | Prisma.FilmeUpdateManyWithWhereWithoutClassificacaoEtariaInput[]
-  deleteMany?: Prisma.FilmeScalarWhereInput | Prisma.FilmeScalarWhereInput[]
-}
-
 export type DateTimeFieldUpdateOperationsInput = {
   set?: Date | string
 }
 
 export type NullableStringFieldUpdateOperationsInput = {
   set?: string | null
+}
+
+export type EnumClassificacaoFieldUpdateOperationsInput = {
+  set?: $Enums.Classificacao
 }
 
 export type FilmeCreateNestedOneWithoutSessoesInput = {
@@ -564,7 +518,7 @@ export type FilmeCreateWithoutGeneroInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
-  classificacaoEtaria: Prisma.ClassificacaoEtariaCreateNestedOneWithoutFilmesInput
+  classificacaoEtaria: $Enums.Classificacao
   sessoes?: Prisma.SessaoCreateNestedManyWithoutFilmeInput
 }
 
@@ -576,7 +530,7 @@ export type FilmeUncheckedCreateWithoutGeneroInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
-  classificacaoEtariaId: number
+  classificacaoEtaria: $Enums.Classificacao
   sessoes?: Prisma.SessaoUncheckedCreateNestedManyWithoutFilmeInput
 }
 
@@ -612,56 +566,7 @@ export type FilmeScalarWhereInput = {
   dataInicioExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   dataFinalExibicao?: Prisma.DateTimeFilter<"Filme"> | Date | string
   elenco?: Prisma.StringNullableFilter<"Filme"> | string | null
-  classificacaoEtariaId?: Prisma.IntFilter<"Filme"> | number
-}
-
-export type FilmeCreateWithoutClassificacaoEtariaInput = {
-  titulo: string
-  sinopse: string
-  duracao: number
-  dataInicioExibicao: Date | string
-  dataFinalExibicao: Date | string
-  elenco?: string | null
-  genero?: Prisma.GeneroCreateNestedManyWithoutFilmesInput
-  sessoes?: Prisma.SessaoCreateNestedManyWithoutFilmeInput
-}
-
-export type FilmeUncheckedCreateWithoutClassificacaoEtariaInput = {
-  id?: number
-  titulo: string
-  sinopse: string
-  duracao: number
-  dataInicioExibicao: Date | string
-  dataFinalExibicao: Date | string
-  elenco?: string | null
-  genero?: Prisma.GeneroUncheckedCreateNestedManyWithoutFilmesInput
-  sessoes?: Prisma.SessaoUncheckedCreateNestedManyWithoutFilmeInput
-}
-
-export type FilmeCreateOrConnectWithoutClassificacaoEtariaInput = {
-  where: Prisma.FilmeWhereUniqueInput
-  create: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput>
-}
-
-export type FilmeCreateManyClassificacaoEtariaInputEnvelope = {
-  data: Prisma.FilmeCreateManyClassificacaoEtariaInput | Prisma.FilmeCreateManyClassificacaoEtariaInput[]
-  skipDuplicates?: boolean
-}
-
-export type FilmeUpsertWithWhereUniqueWithoutClassificacaoEtariaInput = {
-  where: Prisma.FilmeWhereUniqueInput
-  update: Prisma.XOR<Prisma.FilmeUpdateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedUpdateWithoutClassificacaoEtariaInput>
-  create: Prisma.XOR<Prisma.FilmeCreateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedCreateWithoutClassificacaoEtariaInput>
-}
-
-export type FilmeUpdateWithWhereUniqueWithoutClassificacaoEtariaInput = {
-  where: Prisma.FilmeWhereUniqueInput
-  data: Prisma.XOR<Prisma.FilmeUpdateWithoutClassificacaoEtariaInput, Prisma.FilmeUncheckedUpdateWithoutClassificacaoEtariaInput>
-}
-
-export type FilmeUpdateManyWithWhereWithoutClassificacaoEtariaInput = {
-  where: Prisma.FilmeScalarWhereInput
-  data: Prisma.XOR<Prisma.FilmeUpdateManyMutationInput, Prisma.FilmeUncheckedUpdateManyWithoutClassificacaoEtariaInput>
+  classificacaoEtaria?: Prisma.EnumClassificacaoFilter<"Filme"> | $Enums.Classificacao
 }
 
 export type FilmeCreateWithoutSessoesInput = {
@@ -671,8 +576,8 @@ export type FilmeCreateWithoutSessoesInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
+  classificacaoEtaria: $Enums.Classificacao
   genero?: Prisma.GeneroCreateNestedManyWithoutFilmesInput
-  classificacaoEtaria: Prisma.ClassificacaoEtariaCreateNestedOneWithoutFilmesInput
 }
 
 export type FilmeUncheckedCreateWithoutSessoesInput = {
@@ -683,7 +588,7 @@ export type FilmeUncheckedCreateWithoutSessoesInput = {
   dataInicioExibicao: Date | string
   dataFinalExibicao: Date | string
   elenco?: string | null
-  classificacaoEtariaId: number
+  classificacaoEtaria: $Enums.Classificacao
   genero?: Prisma.GeneroUncheckedCreateNestedManyWithoutFilmesInput
 }
 
@@ -710,8 +615,8 @@ export type FilmeUpdateWithoutSessoesInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   genero?: Prisma.GeneroUpdateManyWithoutFilmesNestedInput
-  classificacaoEtaria?: Prisma.ClassificacaoEtariaUpdateOneRequiredWithoutFilmesNestedInput
 }
 
 export type FilmeUncheckedUpdateWithoutSessoesInput = {
@@ -722,7 +627,7 @@ export type FilmeUncheckedUpdateWithoutSessoesInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtariaId?: Prisma.IntFieldUpdateOperationsInput | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   genero?: Prisma.GeneroUncheckedUpdateManyWithoutFilmesNestedInput
 }
 
@@ -733,7 +638,7 @@ export type FilmeUpdateWithoutGeneroInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtaria?: Prisma.ClassificacaoEtariaUpdateOneRequiredWithoutFilmesNestedInput
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   sessoes?: Prisma.SessaoUpdateManyWithoutFilmeNestedInput
 }
 
@@ -745,7 +650,7 @@ export type FilmeUncheckedUpdateWithoutGeneroInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtariaId?: Prisma.IntFieldUpdateOperationsInput | number
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
   sessoes?: Prisma.SessaoUncheckedUpdateManyWithoutFilmeNestedInput
 }
 
@@ -757,50 +662,7 @@ export type FilmeUncheckedUpdateManyWithoutGeneroInput = {
   dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  classificacaoEtariaId?: Prisma.IntFieldUpdateOperationsInput | number
-}
-
-export type FilmeCreateManyClassificacaoEtariaInput = {
-  id?: number
-  titulo: string
-  sinopse: string
-  duracao: number
-  dataInicioExibicao: Date | string
-  dataFinalExibicao: Date | string
-  elenco?: string | null
-}
-
-export type FilmeUpdateWithoutClassificacaoEtariaInput = {
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  sinopse?: Prisma.StringFieldUpdateOperationsInput | string
-  duracao?: Prisma.IntFieldUpdateOperationsInput | number
-  dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  genero?: Prisma.GeneroUpdateManyWithoutFilmesNestedInput
-  sessoes?: Prisma.SessaoUpdateManyWithoutFilmeNestedInput
-}
-
-export type FilmeUncheckedUpdateWithoutClassificacaoEtariaInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  sinopse?: Prisma.StringFieldUpdateOperationsInput | string
-  duracao?: Prisma.IntFieldUpdateOperationsInput | number
-  dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
-  genero?: Prisma.GeneroUncheckedUpdateManyWithoutFilmesNestedInput
-  sessoes?: Prisma.SessaoUncheckedUpdateManyWithoutFilmeNestedInput
-}
-
-export type FilmeUncheckedUpdateManyWithoutClassificacaoEtariaInput = {
-  id?: Prisma.IntFieldUpdateOperationsInput | number
-  titulo?: Prisma.StringFieldUpdateOperationsInput | string
-  sinopse?: Prisma.StringFieldUpdateOperationsInput | string
-  duracao?: Prisma.IntFieldUpdateOperationsInput | number
-  dataInicioExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  dataFinalExibicao?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
-  elenco?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  classificacaoEtaria?: Prisma.EnumClassificacaoFieldUpdateOperationsInput | $Enums.Classificacao
 }
 
 
@@ -851,9 +713,8 @@ export type FilmeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = 
   dataInicioExibicao?: boolean
   dataFinalExibicao?: boolean
   elenco?: boolean
-  classificacaoEtariaId?: boolean
+  classificacaoEtaria?: boolean
   genero?: boolean | Prisma.Filme$generoArgs<ExtArgs>
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
   sessoes?: boolean | Prisma.Filme$sessoesArgs<ExtArgs>
   _count?: boolean | Prisma.FilmeCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["filme"]>
@@ -866,8 +727,7 @@ export type FilmeSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   dataInicioExibicao?: boolean
   dataFinalExibicao?: boolean
   elenco?: boolean
-  classificacaoEtariaId?: boolean
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
+  classificacaoEtaria?: boolean
 }, ExtArgs["result"]["filme"]>
 
 export type FilmeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -878,8 +738,7 @@ export type FilmeSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensi
   dataInicioExibicao?: boolean
   dataFinalExibicao?: boolean
   elenco?: boolean
-  classificacaoEtariaId?: boolean
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
+  classificacaoEtaria?: boolean
 }, ExtArgs["result"]["filme"]>
 
 export type FilmeSelectScalar = {
@@ -890,28 +749,22 @@ export type FilmeSelectScalar = {
   dataInicioExibicao?: boolean
   dataFinalExibicao?: boolean
   elenco?: boolean
-  classificacaoEtariaId?: boolean
+  classificacaoEtaria?: boolean
 }
 
-export type FilmeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "sinopse" | "duracao" | "dataInicioExibicao" | "dataFinalExibicao" | "elenco" | "classificacaoEtariaId", ExtArgs["result"]["filme"]>
+export type FilmeOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "titulo" | "sinopse" | "duracao" | "dataInicioExibicao" | "dataFinalExibicao" | "elenco" | "classificacaoEtaria", ExtArgs["result"]["filme"]>
 export type FilmeInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   genero?: boolean | Prisma.Filme$generoArgs<ExtArgs>
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
   sessoes?: boolean | Prisma.Filme$sessoesArgs<ExtArgs>
   _count?: boolean | Prisma.FilmeCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type FilmeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
-}
-export type FilmeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  classificacaoEtaria?: boolean | Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>
-}
+export type FilmeIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type FilmeIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $FilmePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "Filme"
   objects: {
     genero: Prisma.$GeneroPayload<ExtArgs>[]
-    classificacaoEtaria: Prisma.$ClassificacaoEtariaPayload<ExtArgs>
     sessoes: Prisma.$SessaoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
@@ -922,7 +775,7 @@ export type $FilmePayload<ExtArgs extends runtime.Types.Extensions.InternalArgs 
     dataInicioExibicao: Date
     dataFinalExibicao: Date
     elenco: string | null
-    classificacaoEtariaId: number
+    classificacaoEtaria: $Enums.Classificacao
   }, ExtArgs["result"]["filme"]>
   composites: {}
 }
@@ -1318,7 +1171,6 @@ readonly fields: FilmeFieldRefs;
 export interface Prisma__FilmeClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   genero<T extends Prisma.Filme$generoArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Filme$generoArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$GeneroPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-  classificacaoEtaria<T extends Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.ClassificacaoEtariaDefaultArgs<ExtArgs>>): Prisma.Prisma__ClassificacaoEtariaClient<runtime.Types.Result.GetResult<Prisma.$ClassificacaoEtariaPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
   sessoes<T extends Prisma.Filme$sessoesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Filme$sessoesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$SessaoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -1356,7 +1208,7 @@ export interface FilmeFieldRefs {
   readonly dataInicioExibicao: Prisma.FieldRef<"Filme", 'DateTime'>
   readonly dataFinalExibicao: Prisma.FieldRef<"Filme", 'DateTime'>
   readonly elenco: Prisma.FieldRef<"Filme", 'String'>
-  readonly classificacaoEtariaId: Prisma.FieldRef<"Filme", 'Int'>
+  readonly classificacaoEtaria: Prisma.FieldRef<"Filme", 'Classificacao'>
 }
     
 
@@ -1606,10 +1458,6 @@ export type FilmeCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    */
   data: Prisma.FilmeCreateManyInput | Prisma.FilmeCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FilmeIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1680,10 +1528,6 @@ export type FilmeUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extension
    * Limit how many Filmes to update.
    */
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.FilmeIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**

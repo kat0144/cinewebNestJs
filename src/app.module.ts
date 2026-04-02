@@ -4,15 +4,15 @@ import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
 import { GenerosModule } from './generos/generos.module';
 import { FilmesModule } from './filmes/filmes.module';
-import { ClassificacoesModule } from './classificacoes/classificacoes.module';
 import { SalasModule } from './salas/salas.module';
 import { SessoesModule } from './sessoes/sessoes.module';
 import { IngressosModule } from './ingressos/ingressos.module';
 import { PedidosModule } from './pedidos/pedidos.module';
 import { LanchesModule } from './lanches/lanches.module';
+import { PrecosModule } from './precos/precos.module';
 
 @Module({
-  imports: [PrismaModule, GenerosModule, FilmesModule, ClassificacoesModule, SalasModule, SessoesModule, IngressosModule, PedidosModule, LanchesModule],
+  imports: [PrismaModule, GenerosModule, FilmesModule, SalasModule, SessoesModule, IngressosModule, PedidosModule, LanchesModule, PrecosModule],
   controllers: [AppController],
   providers: [AppService],
 })

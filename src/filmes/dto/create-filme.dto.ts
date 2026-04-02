@@ -1,14 +1,13 @@
-import { IsString, IsNotEmpty, IsOptional, IsArray, IsNumber, IsDate, ValidateNested, IsInt} from 'class-validator'
+import { IsString, IsNotEmpty, IsOptional, IsArray, IsNumber, IsDate, ValidateNested, IsInt, IsEnum} from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger';
 import { Type } from 'class-transformer';
+import { Classificacao } from '../../generated/prisma/enums'; 
 
 class GeneroIdDto {
     @ApiProperty({ example: 1 })
     @IsInt()
     id: number;
 }
-
-
 
 export class CreateFilmeDto {
     @ApiProperty({
@@ -71,15 +70,9 @@ export class CreateFilmeDto {
     elenco?: string;
 
 
-    @ApiProperty({
-        example: '',
-        description: 'Id da Classificação Etária'
-
-    })
-
-    @IsString()
-    @IsOptional() 
-    classificaoEtariaId: number;
+    @ApiProperty({ enum: Classificacao, example: 'LIVRE' })
+    @IsEnum(Classificacao)
+    classificacaoEtaria: Classificacao;
 
     @ApiProperty({ 
         type: [GeneroIdDto], 
@@ -101,7 +94,7 @@ export class CreateFilmeDto {
     @IsArray()
     @IsOptional()
     @ValidateNested({ each: true })
-    sessoes?: any[];
+    sessoes: any[];
 
 
 }

@@ -99,3 +99,10 @@ model Pedido {
   dataHora DateTime  @default(now())
   valorTotal Decimal
 }
+
+model PrecoBase {
+  id           Int     @id @default(1)
+  valorInteira Decimal 
+  valorMeia    Decimal 
+  atualizadoEm DateTime @updatedAt
+}

@@ -23,11 +23,6 @@ export * from './enums.js';
  */
 export type Genero = Prisma.GeneroModel
 /**
- * Model ClassificacaoEtaria
- * 
- */
-export type ClassificacaoEtaria = Prisma.ClassificacaoEtariaModel
-/**
  * Model Filme
  * 
  */
@@ -57,3 +52,8 @@ export type LancheCombo = Prisma.LancheComboModel
  * 
  */
 export type Pedido = Prisma.PedidoModel
+/**
+ * Model PrecoBase
+ * 
+ */
+export type PrecoBase = Prisma.PrecoBaseModel

@@ -42,7 +42,7 @@ export type IngressoSumAggregateOutputType = {
 
 export type IngressoMinAggregateOutputType = {
   id: number | null
-  tipo: string | null
+  tipo: $Enums.TipoIngresso | null
   valorPago: runtime.Decimal | null
   sessaoId: number | null
   pedidoId: number | null
@@ -50,7 +50,7 @@ export type IngressoMinAggregateOutputType = {
 
 export type IngressoMaxAggregateOutputType = {
   id: number | null
-  tipo: string | null
+  tipo: $Enums.TipoIngresso | null
   valorPago: runtime.Decimal | null
   sessaoId: number | null
   pedidoId: number | null
@@ -193,7 +193,7 @@ export type IngressoGroupByArgs<ExtArgs extends runtime.Types.Extensions.Interna
 
 export type IngressoGroupByOutputType = {
   id: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal
   sessaoId: number
   pedidoId: number
@@ -224,7 +224,7 @@ export type IngressoWhereInput = {
   OR?: Prisma.IngressoWhereInput[]
   NOT?: Prisma.IngressoWhereInput | Prisma.IngressoWhereInput[]
   id?: Prisma.IntFilter<"Ingresso"> | number
-  tipo?: Prisma.StringFilter<"Ingresso"> | string
+  tipo?: Prisma.EnumTipoIngressoFilter<"Ingresso"> | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFilter<"Ingresso"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFilter<"Ingresso"> | number
   pedidoId?: Prisma.IntFilter<"Ingresso"> | number
@@ -247,7 +247,7 @@ export type IngressoWhereUniqueInput = Prisma.AtLeast<{
   AND?: Prisma.IngressoWhereInput | Prisma.IngressoWhereInput[]
   OR?: Prisma.IngressoWhereInput[]
   NOT?: Prisma.IngressoWhereInput | Prisma.IngressoWhereInput[]
-  tipo?: Prisma.StringFilter<"Ingresso"> | string
+  tipo?: Prisma.EnumTipoIngressoFilter<"Ingresso"> | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFilter<"Ingresso"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFilter<"Ingresso"> | number
   pedidoId?: Prisma.IntFilter<"Ingresso"> | number
@@ -273,14 +273,14 @@ export type IngressoScalarWhereWithAggregatesInput = {
   OR?: Prisma.IngressoScalarWhereWithAggregatesInput[]
   NOT?: Prisma.IngressoScalarWhereWithAggregatesInput | Prisma.IngressoScalarWhereWithAggregatesInput[]
   id?: Prisma.IntWithAggregatesFilter<"Ingresso"> | number
-  tipo?: Prisma.StringWithAggregatesFilter<"Ingresso"> | string
+  tipo?: Prisma.EnumTipoIngressoWithAggregatesFilter<"Ingresso"> | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalWithAggregatesFilter<"Ingresso"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntWithAggregatesFilter<"Ingresso"> | number
   pedidoId?: Prisma.IntWithAggregatesFilter<"Ingresso"> | number
 }
 
 export type IngressoCreateInput = {
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessao: Prisma.SessaoCreateNestedOneWithoutIngressosInput
   pedido: Prisma.PedidoCreateNestedOneWithoutIngressosInput
@@ -288,14 +288,14 @@ export type IngressoCreateInput = {
 
 export type IngressoUncheckedCreateInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId: number
   pedidoId: number
 }
 
 export type IngressoUpdateInput = {
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessao?: Prisma.SessaoUpdateOneRequiredWithoutIngressosNestedInput
   pedido?: Prisma.PedidoUpdateOneRequiredWithoutIngressosNestedInput
@@ -303,7 +303,7 @@ export type IngressoUpdateInput = {
 
 export type IngressoUncheckedUpdateInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFieldUpdateOperationsInput | number
   pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
@@ -311,20 +311,20 @@ export type IngressoUncheckedUpdateInput = {
 
 export type IngressoCreateManyInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId: number
   pedidoId: number
 }
 
 export type IngressoUpdateManyMutationInput = {
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type IngressoUncheckedUpdateManyInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFieldUpdateOperationsInput | number
   pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
@@ -420,6 +420,10 @@ export type IngressoUncheckedUpdateManyWithoutSessaoNestedInput = {
   deleteMany?: Prisma.IngressoScalarWhereInput | Prisma.IngressoScalarWhereInput[]
 }
 
+export type EnumTipoIngressoFieldUpdateOperationsInput = {
+  set?: $Enums.TipoIngresso
+}
+
 export type DecimalFieldUpdateOperationsInput = {
   set?: runtime.Decimal | runtime.DecimalJsLike | number | string
   increment?: runtime.Decimal | runtime.DecimalJsLike | number | string
@@ -471,14 +475,14 @@ export type IngressoUncheckedUpdateManyWithoutPedidoNestedInput = {
 }
 
 export type IngressoCreateWithoutSessaoInput = {
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   pedido: Prisma.PedidoCreateNestedOneWithoutIngressosInput
 }
 
 export type IngressoUncheckedCreateWithoutSessaoInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   pedidoId: number
 }
@@ -514,21 +518,21 @@ export type IngressoScalarWhereInput = {
   OR?: Prisma.IngressoScalarWhereInput[]
   NOT?: Prisma.IngressoScalarWhereInput | Prisma.IngressoScalarWhereInput[]
   id?: Prisma.IntFilter<"Ingresso"> | number
-  tipo?: Prisma.StringFilter<"Ingresso"> | string
+  tipo?: Prisma.EnumTipoIngressoFilter<"Ingresso"> | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFilter<"Ingresso"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFilter<"Ingresso"> | number
   pedidoId?: Prisma.IntFilter<"Ingresso"> | number
 }
 
 export type IngressoCreateWithoutPedidoInput = {
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessao: Prisma.SessaoCreateNestedOneWithoutIngressosInput
 }
 
 export type IngressoUncheckedCreateWithoutPedidoInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId: number
 }
@@ -561,54 +565,54 @@ export type IngressoUpdateManyWithWhereWithoutPedidoInput = {
 
 export type IngressoCreateManySessaoInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   pedidoId: number
 }
 
 export type IngressoUpdateWithoutSessaoInput = {
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   pedido?: Prisma.PedidoUpdateOneRequiredWithoutIngressosNestedInput
 }
 
 export type IngressoUncheckedUpdateWithoutSessaoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type IngressoUncheckedUpdateManyWithoutSessaoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type IngressoCreateManyPedidoInput = {
   id?: number
-  tipo: string
+  tipo: $Enums.TipoIngresso
   valorPago: runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId: number
 }
 
 export type IngressoUpdateWithoutPedidoInput = {
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessao?: Prisma.SessaoUpdateOneRequiredWithoutIngressosNestedInput
 }
 
 export type IngressoUncheckedUpdateWithoutPedidoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type IngressoUncheckedUpdateManyWithoutPedidoInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
-  tipo?: Prisma.StringFieldUpdateOperationsInput | string
+  tipo?: Prisma.EnumTipoIngressoFieldUpdateOperationsInput | $Enums.TipoIngresso
   valorPago?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   sessaoId?: Prisma.IntFieldUpdateOperationsInput | number
 }
@@ -675,7 +679,7 @@ export type $IngressoPayload<ExtArgs extends runtime.Types.Extensions.InternalAr
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
-    tipo: string
+    tipo: $Enums.TipoIngresso
     valorPago: runtime.Decimal
     sessaoId: number
     pedidoId: number
@@ -1105,7 +1109,7 @@ export interface Prisma__IngressoClient<T, Null = never, ExtArgs extends runtime
  */
 export interface IngressoFieldRefs {
   readonly id: Prisma.FieldRef<"Ingresso", 'Int'>
-  readonly tipo: Prisma.FieldRef<"Ingresso", 'String'>
+  readonly tipo: Prisma.FieldRef<"Ingresso", 'TipoIngresso'>
   readonly valorPago: Prisma.FieldRef<"Ingresso", 'Decimal'>
   readonly sessaoId: Prisma.FieldRef<"Ingresso", 'Int'>
   readonly pedidoId: Prisma.FieldRef<"Ingresso", 'Int'>

@@ -52,13 +52,13 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   Genero: 'Genero',
-  ClassificacaoEtaria: 'ClassificacaoEtaria',
   Filme: 'Filme',
   Sala: 'Sala',
   Sessao: 'Sessao',
   Ingresso: 'Ingresso',
   LancheCombo: 'LancheCombo',
-  Pedido: 'Pedido'
+  Pedido: 'Pedido',
+  PrecoBase: 'PrecoBase'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -85,14 +85,6 @@ export const GeneroScalarFieldEnum = {
 export type GeneroScalarFieldEnum = (typeof GeneroScalarFieldEnum)[keyof typeof GeneroScalarFieldEnum]
 
 
-export const ClassificacaoEtariaScalarFieldEnum = {
-  id: 'id',
-  nome: 'nome'
-} as const
-
-export type ClassificacaoEtariaScalarFieldEnum = (typeof ClassificacaoEtariaScalarFieldEnum)[keyof typeof ClassificacaoEtariaScalarFieldEnum]
-
-
 export const FilmeScalarFieldEnum = {
   id: 'id',
   titulo: 'titulo',
@@ -101,7 +93,7 @@ export const FilmeScalarFieldEnum = {
   dataInicioExibicao: 'dataInicioExibicao',
   dataFinalExibicao: 'dataFinalExibicao',
   elenco: 'elenco',
-  classificacaoEtariaId: 'classificacaoEtariaId'
+  classificacaoEtaria: 'classificacaoEtaria'
 } as const
 
 export type FilmeScalarFieldEnum = (typeof FilmeScalarFieldEnum)[keyof typeof FilmeScalarFieldEnum]
@@ -159,6 +151,16 @@ export const PedidoScalarFieldEnum = {
 } as const
 
 export type PedidoScalarFieldEnum = (typeof PedidoScalarFieldEnum)[keyof typeof PedidoScalarFieldEnum]
+
+
+export const PrecoBaseScalarFieldEnum = {
+  id: 'id',
+  valorInteira: 'valorInteira',
+  valorMeia: 'valorMeia',
+  atualizadoEm: 'atualizadoEm'
+} as const
+
+export type PrecoBaseScalarFieldEnum = (typeof PrecoBaseScalarFieldEnum)[keyof typeof PrecoBaseScalarFieldEnum]
 
 
 export const SortOrder = {

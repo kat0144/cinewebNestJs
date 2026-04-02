@@ -9,11 +9,11 @@
  * 🟢 You can import this file directly.
  */
 export type * from './models/Genero.js'
-export type * from './models/ClassificacaoEtaria.js'
 export type * from './models/Filme.js'
 export type * from './models/Sala.js'
 export type * from './models/Sessao.js'
 export type * from './models/Ingresso.js'
 export type * from './models/LancheCombo.js'
 export type * from './models/Pedido.js'
+export type * from './models/PrecoBase.js'
 export type * from './commonInputTypes.js'
