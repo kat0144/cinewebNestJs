@@ -86,15 +86,4 @@ export class CreateFilmeDto {
     genero: GeneroIdDto[];
 
 
-    @ApiProperty({ 
-        description: 'Sessões vinculadas ao filme', 
-        required: false,
-        isArray: true 
-    })
-    @IsArray()
-    @IsOptional()
-    @ValidateNested({ each: true })
-    sessoes: any[];
-
-
 }

@@ -1,26 +1,89 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable, NotFoundException } from '@nestjs/common';
+import { PrismaService } from '../prisma/prisma.service';
 import { CreateGeneroDto } from './dto/create-genero.dto';
 import { UpdateGeneroDto } from './dto/update-genero.dto';
 
 @Injectable()
 export class GenerosService {
-  create(createGeneroDto: CreateGeneroDto) {
-    return 'This action adds a new genero';
+  constructor(private prisma: PrismaService) { }
+
+  async create(createGeneroDto: CreateGeneroDto) {
+
+    const generoExistente = await this.prisma.genero.findFirst({
+      where: { nome: createGeneroDto.nome }
+    });
+
+    if (generoExistente) {
+      throw new ConflictException("Já existe um gênero com esse nome.")
+
+    }
+
+    return this.prisma.genero.create({
+      data: createGeneroDto
+    });
+
   }
 
-  findAll() {
-    return `This action returns all generos`;
+  async findAll() {
+    return this.prisma.genero.findMany();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} genero`;
+  async findOne(id: number) {
+    const genero = await this.prisma.genero.findUnique({
+      where: { id },
+    })
+
+    if (!genero) {
+      throw new NotFoundException("Gênero não encontrado!")
+
+    }
+
+    return genero;
   }
 
-  update(id: number, updateGeneroDto: UpdateGeneroDto) {
-    return `This action updates a #${id} genero`;
+  async update(id: number, updateGeneroDto: UpdateGeneroDto) {
+    const { filmes, ...dadosRestantes } = updateGeneroDto;
+
+    try {
+      return await this.prisma.genero.update({
+        where: { id },
+        data: {
+          ...dadosRestantes,
+
+          ...(filmes && {
+            filmes: {
+              set: filmes.map((f) => ({ id: f.id })),
+            },
+          }),
+        },
+        include: {
+          filmes: true,
+        },
+      });
+    }
+
+    catch (error) {
+      if (error.code === 'P2025') {
+        throw new NotFoundException(`Gênero não encontrado!`);
+      }
+      throw error;
+    }
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} genero`;
+  async remove(id: number) {
+
+    const generoExistente = await this.prisma.genero.findFirst({
+      where: { id },
+
+    });
+
+    if (!generoExistente) {
+      throw new ConflictException("Não é possível deletar esse gênero, ele não existe!")
+    }
+
+
+    return this.prisma.genero.delete({ where: { id } });
   }
+
 }
+

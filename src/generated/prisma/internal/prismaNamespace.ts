@@ -391,7 +391,8 @@ export const ModelName = {
   Ingresso: 'Ingresso',
   LancheCombo: 'LancheCombo',
   Pedido: 'Pedido',
-  PrecoBase: 'PrecoBase'
+  PrecoBase: 'PrecoBase',
+  Cinema: 'Cinema'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,7 +408,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-    modelProps: "genero" | "filme" | "sala" | "sessao" | "ingresso" | "lancheCombo" | "pedido" | "precoBase"
+    modelProps: "genero" | "filme" | "sala" | "sessao" | "ingresso" | "lancheCombo" | "pedido" | "precoBase" | "cinema"
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -1003,6 +1004,80 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
+    Cinema: {
+      payload: Prisma.$CinemaPayload<ExtArgs>
+      fields: Prisma.CinemaFieldRefs
+      operations: {
+        findUnique: {
+          args: Prisma.CinemaFindUniqueArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload> | null
+        }
+        findUniqueOrThrow: {
+          args: Prisma.CinemaFindUniqueOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        findFirst: {
+          args: Prisma.CinemaFindFirstArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload> | null
+        }
+        findFirstOrThrow: {
+          args: Prisma.CinemaFindFirstOrThrowArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        findMany: {
+          args: Prisma.CinemaFindManyArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>[]
+        }
+        create: {
+          args: Prisma.CinemaCreateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        createMany: {
+          args: Prisma.CinemaCreateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        createManyAndReturn: {
+          args: Prisma.CinemaCreateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>[]
+        }
+        delete: {
+          args: Prisma.CinemaDeleteArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        update: {
+          args: Prisma.CinemaUpdateArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        deleteMany: {
+          args: Prisma.CinemaDeleteManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateMany: {
+          args: Prisma.CinemaUpdateManyArgs<ExtArgs>
+          result: BatchPayload
+        }
+        updateManyAndReturn: {
+          args: Prisma.CinemaUpdateManyAndReturnArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>[]
+        }
+        upsert: {
+          args: Prisma.CinemaUpsertArgs<ExtArgs>
+          result: runtime.Types.Utils.PayloadToResult<Prisma.$CinemaPayload>
+        }
+        aggregate: {
+          args: Prisma.CinemaAggregateArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.AggregateCinema>
+        }
+        groupBy: {
+          args: Prisma.CinemaGroupByArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CinemaGroupByOutputType>[]
+        }
+        count: {
+          args: Prisma.CinemaCountArgs<ExtArgs>
+          result: runtime.Types.Utils.Optional<Prisma.CinemaCountAggregateOutputType> | number
+        }
+      }
+    }
   }
 } & {
   other: {
@@ -1099,9 +1174,7 @@ export const LancheComboScalarFieldEnum = {
   nome: 'nome',
   descricao: 'descricao',
   preco: 'preco',
-  qtdItens: 'qtdItens',
-  total: 'total',
-  pedidoId: 'pedidoId'
+  qtdItens: 'qtdItens'
 } as const
 
 export type LancheComboScalarFieldEnum = (typeof LancheComboScalarFieldEnum)[keyof typeof LancheComboScalarFieldEnum]
@@ -1126,6 +1199,15 @@ export const PrecoBaseScalarFieldEnum = {
 } as const
 
 export type PrecoBaseScalarFieldEnum = (typeof PrecoBaseScalarFieldEnum)[keyof typeof PrecoBaseScalarFieldEnum]
+
+
+export const CinemaScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  endereco: 'endereco'
+} as const
+
+export type CinemaScalarFieldEnum = (typeof CinemaScalarFieldEnum)[keyof typeof CinemaScalarFieldEnum]
 
 
 export const SortOrder = {
@@ -1358,6 +1440,7 @@ export type GlobalOmitConfig = {
   lancheCombo?: Prisma.LancheComboOmit
   pedido?: Prisma.PedidoOmit
   precoBase?: Prisma.PrecoBaseOmit
+  cinema?: Prisma.CinemaOmit
 }
 
 /* Types for Logging */

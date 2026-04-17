@@ -10,7 +10,7 @@ export class CreateIngressoDto {
     tipo: TipoIngresso;
 
     @ApiProperty({
-        example: 'Id da Sessão',
+        example: 1,
         description: 'Id que corresponde a sessão'
 
     })

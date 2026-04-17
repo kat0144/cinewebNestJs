@@ -77,3 +77,8 @@ export type Pedido = Prisma.PedidoModel
  * 
  */
 export type PrecoBase = Prisma.PrecoBaseModel
+/**
+ * Model Cinema
+ * 
+ */
+export type Cinema = Prisma.CinemaModel

@@ -44,14 +44,16 @@ model Filme {
   genero Genero[] @relation("FilmesGenero") 
   classificacaoEtaria Classificacao
   sessoes Sessao[]
+  cinemas Cinema[]
 }
 
 model Sala {
   id   Int    @default(autoincrement()) @id
-  identificacao  String
+  identificacao  String @unique
   capacidade Int 
 
   sessoes Sessao[]
+   cinemas Cinema[]
 }
 
 model Sessao {
@@ -60,10 +62,11 @@ model Sessao {
   filme Filme @relation(fields: [filmeId], references: [id])
   filmeId Int 
 
-  sala Sala @relation(fields: [salaId], references: [id])
-  salaId Int 
+  sala Sala? @relation(fields: [salaId], references: [id])
+  salaId Int? 
 
   ingressos Ingresso[]
+   cinemas Cinema[]
 }
 
 model Ingresso { 
@@ -74,20 +77,18 @@ model Ingresso {
   sessao    Sessao   @relation(fields: [sessaoId], references: [id])
   sessaoId  Int
 
-  pedido    Pedido   @relation(fields: [pedidoId], references: [id])
+  pedido    Pedido   @relation(fields: [pedidoId], references: [id], onDelete: Cascade)
   pedidoId  Int
 }
 
 model LancheCombo {
-  id   Int    @default(autoincrement()) @id
-  nome String
+  id        Int      @id @default(autoincrement())
+  nome      String
   descricao String
-  preco Decimal
-  qtdItens Int 
-  total Decimal
+  preco     Decimal
+  qtdItens  Int      
   
-  pedido Pedido @relation(fields: [pedidoId], references: [id])
-  pedidoId Int
+  pedidos   Pedido[] 
 }
 
 model Pedido {
@@ -105,4 +106,15 @@ model PrecoBase {
   valorInteira Decimal 
   valorMeia    Decimal 
   atualizadoEm DateTime @updatedAt
+}
+
+model Cinema {
+  id   Int    @default(autoincrement()) @id
+  nome String
+  endereco String
+
+  salas Sala[]
+  filmes Filme[]
+  sessoes Sessao[]
+
 }

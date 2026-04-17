@@ -58,7 +58,8 @@ export const ModelName = {
   Ingresso: 'Ingresso',
   LancheCombo: 'LancheCombo',
   Pedido: 'Pedido',
-  PrecoBase: 'PrecoBase'
+  PrecoBase: 'PrecoBase',
+  Cinema: 'Cinema'
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -134,9 +135,7 @@ export const LancheComboScalarFieldEnum = {
   nome: 'nome',
   descricao: 'descricao',
   preco: 'preco',
-  qtdItens: 'qtdItens',
-  total: 'total',
-  pedidoId: 'pedidoId'
+  qtdItens: 'qtdItens'
 } as const
 
 export type LancheComboScalarFieldEnum = (typeof LancheComboScalarFieldEnum)[keyof typeof LancheComboScalarFieldEnum]
@@ -161,6 +160,15 @@ export const PrecoBaseScalarFieldEnum = {
 } as const
 
 export type PrecoBaseScalarFieldEnum = (typeof PrecoBaseScalarFieldEnum)[keyof typeof PrecoBaseScalarFieldEnum]
+
+
+export const CinemaScalarFieldEnum = {
+  id: 'id',
+  nome: 'nome',
+  endereco: 'endereco'
+} as const
+
+export type CinemaScalarFieldEnum = (typeof CinemaScalarFieldEnum)[keyof typeof CinemaScalarFieldEnum]
 
 
 export const SortOrder = {

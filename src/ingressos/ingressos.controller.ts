@@ -7,11 +7,6 @@ import { UpdateIngressoDto } from './dto/update-ingresso.dto';
 export class IngressosController {
   constructor(private readonly ingressosService: IngressosService) {}
 
-  @Post()
-  create(@Body() createIngressoDto: CreateIngressoDto) {
-    return this.ingressosService.create(createIngressoDto);
-  }
-
   @Get()
   findAll() {
     return this.ingressosService.findAll();
@@ -20,11 +15,6 @@ export class IngressosController {
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.ingressosService.findOne(+id);
-  }
-
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateIngressoDto: UpdateIngressoDto) {
-    return this.ingressosService.update(+id, updateIngressoDto);
   }
 
   @Delete(':id')

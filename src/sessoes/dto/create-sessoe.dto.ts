@@ -40,17 +40,4 @@ export class CreateSessoeDto {
     @IsNotEmpty() 
     salaId: number;
 
-
-    @ApiProperty({
-        description: 'Lista de ingressos da sessão correspondente',
-        type: [CreateIngressoDto]
-    })
-    @IsArray()
-    @ValidateNested({ each: true }) 
-    @Type(() => CreateIngressoDto) 
-    ingressos: CreateIngressoDto[];
-
-
-
-
 }

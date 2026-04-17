@@ -7,15 +7,6 @@ import { UpdatePrecoDto } from './dto/update-preco.dto';
 export class PrecosController {
   constructor(private readonly precosService: PrecosService) {}
 
-  @Post()
-  create(@Body() createPrecoDto: CreatePrecoDto) {
-    return this.precosService.create(createPrecoDto);
-  }
-
-  @Get()
-  findAll() {
-    return this.precosService.findAll();
-  }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
@@ -25,10 +16,5 @@ export class PrecosController {
   @Patch(':id')
   update(@Param('id') id: string, @Body() updatePrecoDto: UpdatePrecoDto) {
     return this.precosService.update(+id, updatePrecoDto);
-  }
-
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.precosService.remove(+id);
   }
 }

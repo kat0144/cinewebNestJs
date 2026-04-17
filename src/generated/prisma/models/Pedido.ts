@@ -285,7 +285,7 @@ export type PedidoCreateInput = {
   dataHora?: Date | string
   valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
   ingressos?: Prisma.IngressoCreateNestedManyWithoutPedidoInput
-  lanches?: Prisma.LancheComboCreateNestedManyWithoutPedidoInput
+  lanches?: Prisma.LancheComboCreateNestedManyWithoutPedidosInput
 }
 
 export type PedidoUncheckedCreateInput = {
@@ -295,7 +295,7 @@ export type PedidoUncheckedCreateInput = {
   dataHora?: Date | string
   valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
   ingressos?: Prisma.IngressoUncheckedCreateNestedManyWithoutPedidoInput
-  lanches?: Prisma.LancheComboUncheckedCreateNestedManyWithoutPedidoInput
+  lanches?: Prisma.LancheComboUncheckedCreateNestedManyWithoutPedidosInput
 }
 
 export type PedidoUpdateInput = {
@@ -304,7 +304,7 @@ export type PedidoUpdateInput = {
   dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   ingressos?: Prisma.IngressoUpdateManyWithoutPedidoNestedInput
-  lanches?: Prisma.LancheComboUpdateManyWithoutPedidoNestedInput
+  lanches?: Prisma.LancheComboUpdateManyWithoutPedidosNestedInput
 }
 
 export type PedidoUncheckedUpdateInput = {
@@ -314,7 +314,7 @@ export type PedidoUncheckedUpdateInput = {
   dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   ingressos?: Prisma.IngressoUncheckedUpdateManyWithoutPedidoNestedInput
-  lanches?: Prisma.LancheComboUncheckedUpdateManyWithoutPedidoNestedInput
+  lanches?: Prisma.LancheComboUncheckedUpdateManyWithoutPedidosNestedInput
 }
 
 export type PedidoCreateManyInput = {
@@ -343,6 +343,16 @@ export type PedidoUncheckedUpdateManyInput = {
 export type PedidoScalarRelationFilter = {
   is?: Prisma.PedidoWhereInput
   isNot?: Prisma.PedidoWhereInput
+}
+
+export type PedidoListRelationFilter = {
+  every?: Prisma.PedidoWhereInput
+  some?: Prisma.PedidoWhereInput
+  none?: Prisma.PedidoWhereInput
+}
+
+export type PedidoOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder
 }
 
 export type PedidoCountOrderByAggregateInput = {
@@ -397,26 +407,42 @@ export type PedidoUpdateOneRequiredWithoutIngressosNestedInput = {
   update?: Prisma.XOR<Prisma.XOR<Prisma.PedidoUpdateToOneWithWhereWithoutIngressosInput, Prisma.PedidoUpdateWithoutIngressosInput>, Prisma.PedidoUncheckedUpdateWithoutIngressosInput>
 }
 
-export type PedidoCreateNestedOneWithoutLanchesInput = {
-  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput>
-  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput
-  connect?: Prisma.PedidoWhereUniqueInput
+export type PedidoCreateNestedManyWithoutLanchesInput = {
+  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput> | Prisma.PedidoCreateWithoutLanchesInput[] | Prisma.PedidoUncheckedCreateWithoutLanchesInput[]
+  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput | Prisma.PedidoCreateOrConnectWithoutLanchesInput[]
+  connect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
 }
 
-export type PedidoUpdateOneRequiredWithoutLanchesNestedInput = {
-  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput>
-  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput
-  upsert?: Prisma.PedidoUpsertWithoutLanchesInput
-  connect?: Prisma.PedidoWhereUniqueInput
-  update?: Prisma.XOR<Prisma.XOR<Prisma.PedidoUpdateToOneWithWhereWithoutLanchesInput, Prisma.PedidoUpdateWithoutLanchesInput>, Prisma.PedidoUncheckedUpdateWithoutLanchesInput>
+export type PedidoUncheckedCreateNestedManyWithoutLanchesInput = {
+  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput> | Prisma.PedidoCreateWithoutLanchesInput[] | Prisma.PedidoUncheckedCreateWithoutLanchesInput[]
+  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput | Prisma.PedidoCreateOrConnectWithoutLanchesInput[]
+  connect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
 }
 
-export type NullableIntFieldUpdateOperationsInput = {
-  set?: number | null
-  increment?: number
-  decrement?: number
-  multiply?: number
-  divide?: number
+export type PedidoUpdateManyWithoutLanchesNestedInput = {
+  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput> | Prisma.PedidoCreateWithoutLanchesInput[] | Prisma.PedidoUncheckedCreateWithoutLanchesInput[]
+  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput | Prisma.PedidoCreateOrConnectWithoutLanchesInput[]
+  upsert?: Prisma.PedidoUpsertWithWhereUniqueWithoutLanchesInput | Prisma.PedidoUpsertWithWhereUniqueWithoutLanchesInput[]
+  set?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  disconnect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  delete?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  connect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  update?: Prisma.PedidoUpdateWithWhereUniqueWithoutLanchesInput | Prisma.PedidoUpdateWithWhereUniqueWithoutLanchesInput[]
+  updateMany?: Prisma.PedidoUpdateManyWithWhereWithoutLanchesInput | Prisma.PedidoUpdateManyWithWhereWithoutLanchesInput[]
+  deleteMany?: Prisma.PedidoScalarWhereInput | Prisma.PedidoScalarWhereInput[]
+}
+
+export type PedidoUncheckedUpdateManyWithoutLanchesNestedInput = {
+  create?: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput> | Prisma.PedidoCreateWithoutLanchesInput[] | Prisma.PedidoUncheckedCreateWithoutLanchesInput[]
+  connectOrCreate?: Prisma.PedidoCreateOrConnectWithoutLanchesInput | Prisma.PedidoCreateOrConnectWithoutLanchesInput[]
+  upsert?: Prisma.PedidoUpsertWithWhereUniqueWithoutLanchesInput | Prisma.PedidoUpsertWithWhereUniqueWithoutLanchesInput[]
+  set?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  disconnect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  delete?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  connect?: Prisma.PedidoWhereUniqueInput | Prisma.PedidoWhereUniqueInput[]
+  update?: Prisma.PedidoUpdateWithWhereUniqueWithoutLanchesInput | Prisma.PedidoUpdateWithWhereUniqueWithoutLanchesInput[]
+  updateMany?: Prisma.PedidoUpdateManyWithWhereWithoutLanchesInput | Prisma.PedidoUpdateManyWithWhereWithoutLanchesInput[]
+  deleteMany?: Prisma.PedidoScalarWhereInput | Prisma.PedidoScalarWhereInput[]
 }
 
 export type PedidoCreateWithoutIngressosInput = {
@@ -424,7 +450,7 @@ export type PedidoCreateWithoutIngressosInput = {
   qtdMeia?: number | null
   dataHora?: Date | string
   valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
-  lanches?: Prisma.LancheComboCreateNestedManyWithoutPedidoInput
+  lanches?: Prisma.LancheComboCreateNestedManyWithoutPedidosInput
 }
 
 export type PedidoUncheckedCreateWithoutIngressosInput = {
@@ -433,7 +459,7 @@ export type PedidoUncheckedCreateWithoutIngressosInput = {
   qtdMeia?: number | null
   dataHora?: Date | string
   valorTotal: runtime.Decimal | runtime.DecimalJsLike | number | string
-  lanches?: Prisma.LancheComboUncheckedCreateNestedManyWithoutPedidoInput
+  lanches?: Prisma.LancheComboUncheckedCreateNestedManyWithoutPedidosInput
 }
 
 export type PedidoCreateOrConnectWithoutIngressosInput = {
@@ -457,7 +483,7 @@ export type PedidoUpdateWithoutIngressosInput = {
   qtdMeia?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  lanches?: Prisma.LancheComboUpdateManyWithoutPedidoNestedInput
+  lanches?: Prisma.LancheComboUpdateManyWithoutPedidosNestedInput
 }
 
 export type PedidoUncheckedUpdateWithoutIngressosInput = {
@@ -466,7 +492,7 @@ export type PedidoUncheckedUpdateWithoutIngressosInput = {
   qtdMeia?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
   dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  lanches?: Prisma.LancheComboUncheckedUpdateManyWithoutPedidoNestedInput
+  lanches?: Prisma.LancheComboUncheckedUpdateManyWithoutPedidosNestedInput
 }
 
 export type PedidoCreateWithoutLanchesInput = {
@@ -491,15 +517,31 @@ export type PedidoCreateOrConnectWithoutLanchesInput = {
   create: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput>
 }
 
-export type PedidoUpsertWithoutLanchesInput = {
+export type PedidoUpsertWithWhereUniqueWithoutLanchesInput = {
+  where: Prisma.PedidoWhereUniqueInput
   update: Prisma.XOR<Prisma.PedidoUpdateWithoutLanchesInput, Prisma.PedidoUncheckedUpdateWithoutLanchesInput>
   create: Prisma.XOR<Prisma.PedidoCreateWithoutLanchesInput, Prisma.PedidoUncheckedCreateWithoutLanchesInput>
-  where?: Prisma.PedidoWhereInput
 }
 
-export type PedidoUpdateToOneWithWhereWithoutLanchesInput = {
-  where?: Prisma.PedidoWhereInput
+export type PedidoUpdateWithWhereUniqueWithoutLanchesInput = {
+  where: Prisma.PedidoWhereUniqueInput
   data: Prisma.XOR<Prisma.PedidoUpdateWithoutLanchesInput, Prisma.PedidoUncheckedUpdateWithoutLanchesInput>
+}
+
+export type PedidoUpdateManyWithWhereWithoutLanchesInput = {
+  where: Prisma.PedidoScalarWhereInput
+  data: Prisma.XOR<Prisma.PedidoUpdateManyMutationInput, Prisma.PedidoUncheckedUpdateManyWithoutLanchesInput>
+}
+
+export type PedidoScalarWhereInput = {
+  AND?: Prisma.PedidoScalarWhereInput | Prisma.PedidoScalarWhereInput[]
+  OR?: Prisma.PedidoScalarWhereInput[]
+  NOT?: Prisma.PedidoScalarWhereInput | Prisma.PedidoScalarWhereInput[]
+  id?: Prisma.IntFilter<"Pedido"> | number
+  qtdInteira?: Prisma.IntNullableFilter<"Pedido"> | number | null
+  qtdMeia?: Prisma.IntNullableFilter<"Pedido"> | number | null
+  dataHora?: Prisma.DateTimeFilter<"Pedido"> | Date | string
+  valorTotal?: Prisma.DecimalFilter<"Pedido"> | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type PedidoUpdateWithoutLanchesInput = {
@@ -517,6 +559,14 @@ export type PedidoUncheckedUpdateWithoutLanchesInput = {
   dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   ingressos?: Prisma.IngressoUncheckedUpdateManyWithoutPedidoNestedInput
+}
+
+export type PedidoUncheckedUpdateManyWithoutLanchesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number
+  qtdInteira?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  qtdMeia?: Prisma.NullableIntFieldUpdateOperationsInput | number | null
+  dataHora?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  valorTotal?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 

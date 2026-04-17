@@ -30,16 +30,12 @@ export type LancheComboAvgAggregateOutputType = {
   id: number | null
   preco: runtime.Decimal | null
   qtdItens: number | null
-  total: runtime.Decimal | null
-  pedidoId: number | null
 }
 
 export type LancheComboSumAggregateOutputType = {
   id: number | null
   preco: runtime.Decimal | null
   qtdItens: number | null
-  total: runtime.Decimal | null
-  pedidoId: number | null
 }
 
 export type LancheComboMinAggregateOutputType = {
@@ -48,8 +44,6 @@ export type LancheComboMinAggregateOutputType = {
   descricao: string | null
   preco: runtime.Decimal | null
   qtdItens: number | null
-  total: runtime.Decimal | null
-  pedidoId: number | null
 }
 
 export type LancheComboMaxAggregateOutputType = {
@@ -58,8 +52,6 @@ export type LancheComboMaxAggregateOutputType = {
   descricao: string | null
   preco: runtime.Decimal | null
   qtdItens: number | null
-  total: runtime.Decimal | null
-  pedidoId: number | null
 }
 
 export type LancheComboCountAggregateOutputType = {
@@ -68,8 +60,6 @@ export type LancheComboCountAggregateOutputType = {
   descricao: number
   preco: number
   qtdItens: number
-  total: number
-  pedidoId: number
   _all: number
 }
 
@@ -78,16 +68,12 @@ export type LancheComboAvgAggregateInputType = {
   id?: true
   preco?: true
   qtdItens?: true
-  total?: true
-  pedidoId?: true
 }
 
 export type LancheComboSumAggregateInputType = {
   id?: true
   preco?: true
   qtdItens?: true
-  total?: true
-  pedidoId?: true
 }
 
 export type LancheComboMinAggregateInputType = {
@@ -96,8 +82,6 @@ export type LancheComboMinAggregateInputType = {
   descricao?: true
   preco?: true
   qtdItens?: true
-  total?: true
-  pedidoId?: true
 }
 
 export type LancheComboMaxAggregateInputType = {
@@ -106,8 +90,6 @@ export type LancheComboMaxAggregateInputType = {
   descricao?: true
   preco?: true
   qtdItens?: true
-  total?: true
-  pedidoId?: true
 }
 
 export type LancheComboCountAggregateInputType = {
@@ -116,8 +98,6 @@ export type LancheComboCountAggregateInputType = {
   descricao?: true
   preco?: true
   qtdItens?: true
-  total?: true
-  pedidoId?: true
   _all?: true
 }
 
@@ -213,8 +193,6 @@ export type LancheComboGroupByOutputType = {
   descricao: string
   preco: runtime.Decimal
   qtdItens: number
-  total: runtime.Decimal
-  pedidoId: number
   _count: LancheComboCountAggregateOutputType | null
   _avg: LancheComboAvgAggregateOutputType | null
   _sum: LancheComboSumAggregateOutputType | null
@@ -246,9 +224,7 @@ export type LancheComboWhereInput = {
   descricao?: Prisma.StringFilter<"LancheCombo"> | string
   preco?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFilter<"LancheCombo"> | number
-  total?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntFilter<"LancheCombo"> | number
-  pedido?: Prisma.XOR<Prisma.PedidoScalarRelationFilter, Prisma.PedidoWhereInput>
+  pedidos?: Prisma.PedidoListRelationFilter
 }
 
 export type LancheComboOrderByWithRelationInput = {
@@ -257,9 +233,7 @@ export type LancheComboOrderByWithRelationInput = {
   descricao?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
-  pedido?: Prisma.PedidoOrderByWithRelationInput
+  pedidos?: Prisma.PedidoOrderByRelationAggregateInput
 }
 
 export type LancheComboWhereUniqueInput = Prisma.AtLeast<{
@@ -271,9 +245,7 @@ export type LancheComboWhereUniqueInput = Prisma.AtLeast<{
   descricao?: Prisma.StringFilter<"LancheCombo"> | string
   preco?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFilter<"LancheCombo"> | number
-  total?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntFilter<"LancheCombo"> | number
-  pedido?: Prisma.XOR<Prisma.PedidoScalarRelationFilter, Prisma.PedidoWhereInput>
+  pedidos?: Prisma.PedidoListRelationFilter
 }, "id">
 
 export type LancheComboOrderByWithAggregationInput = {
@@ -282,8 +254,6 @@ export type LancheComboOrderByWithAggregationInput = {
   descricao?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
   _count?: Prisma.LancheComboCountOrderByAggregateInput
   _avg?: Prisma.LancheComboAvgOrderByAggregateInput
   _max?: Prisma.LancheComboMaxOrderByAggregateInput
@@ -300,8 +270,6 @@ export type LancheComboScalarWhereWithAggregatesInput = {
   descricao?: Prisma.StringWithAggregatesFilter<"LancheCombo"> | string
   preco?: Prisma.DecimalWithAggregatesFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntWithAggregatesFilter<"LancheCombo"> | number
-  total?: Prisma.DecimalWithAggregatesFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntWithAggregatesFilter<"LancheCombo"> | number
 }
 
 export type LancheComboCreateInput = {
@@ -309,8 +277,7 @@ export type LancheComboCreateInput = {
   descricao: string
   preco: runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedido: Prisma.PedidoCreateNestedOneWithoutLanchesInput
+  pedidos?: Prisma.PedidoCreateNestedManyWithoutLanchesInput
 }
 
 export type LancheComboUncheckedCreateInput = {
@@ -319,8 +286,7 @@ export type LancheComboUncheckedCreateInput = {
   descricao: string
   preco: runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId: number
+  pedidos?: Prisma.PedidoUncheckedCreateNestedManyWithoutLanchesInput
 }
 
 export type LancheComboUpdateInput = {
@@ -328,8 +294,7 @@ export type LancheComboUpdateInput = {
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedido?: Prisma.PedidoUpdateOneRequiredWithoutLanchesNestedInput
+  pedidos?: Prisma.PedidoUpdateManyWithoutLanchesNestedInput
 }
 
 export type LancheComboUncheckedUpdateInput = {
@@ -338,8 +303,7 @@ export type LancheComboUncheckedUpdateInput = {
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
+  pedidos?: Prisma.PedidoUncheckedUpdateManyWithoutLanchesNestedInput
 }
 
 export type LancheComboCreateManyInput = {
@@ -348,8 +312,6 @@ export type LancheComboCreateManyInput = {
   descricao: string
   preco: runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId: number
 }
 
 export type LancheComboUpdateManyMutationInput = {
@@ -357,7 +319,6 @@ export type LancheComboUpdateManyMutationInput = {
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
 export type LancheComboUncheckedUpdateManyInput = {
@@ -366,8 +327,6 @@ export type LancheComboUncheckedUpdateManyInput = {
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntFieldUpdateOperationsInput | number
 }
 
 export type LancheComboCountOrderByAggregateInput = {
@@ -376,16 +335,12 @@ export type LancheComboCountOrderByAggregateInput = {
   descricao?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
 }
 
 export type LancheComboAvgOrderByAggregateInput = {
   id?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
 }
 
 export type LancheComboMaxOrderByAggregateInput = {
@@ -394,8 +349,6 @@ export type LancheComboMaxOrderByAggregateInput = {
   descricao?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
 }
 
 export type LancheComboMinOrderByAggregateInput = {
@@ -404,16 +357,12 @@ export type LancheComboMinOrderByAggregateInput = {
   descricao?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
 }
 
 export type LancheComboSumOrderByAggregateInput = {
   id?: Prisma.SortOrder
   preco?: Prisma.SortOrder
   qtdItens?: Prisma.SortOrder
-  total?: Prisma.SortOrder
-  pedidoId?: Prisma.SortOrder
 }
 
 export type LancheComboListRelationFilter = {
@@ -426,89 +375,78 @@ export type LancheComboOrderByRelationAggregateInput = {
   _count?: Prisma.SortOrder
 }
 
-export type LancheComboCreateNestedManyWithoutPedidoInput = {
-  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput> | Prisma.LancheComboCreateWithoutPedidoInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidoInput[]
-  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidoInput | Prisma.LancheComboCreateOrConnectWithoutPedidoInput[]
-  createMany?: Prisma.LancheComboCreateManyPedidoInputEnvelope
+export type LancheComboCreateNestedManyWithoutPedidosInput = {
+  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput> | Prisma.LancheComboCreateWithoutPedidosInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidosInput | Prisma.LancheComboCreateOrConnectWithoutPedidosInput[]
   connect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
 }
 
-export type LancheComboUncheckedCreateNestedManyWithoutPedidoInput = {
-  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput> | Prisma.LancheComboCreateWithoutPedidoInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidoInput[]
-  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidoInput | Prisma.LancheComboCreateOrConnectWithoutPedidoInput[]
-  createMany?: Prisma.LancheComboCreateManyPedidoInputEnvelope
+export type LancheComboUncheckedCreateNestedManyWithoutPedidosInput = {
+  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput> | Prisma.LancheComboCreateWithoutPedidosInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidosInput | Prisma.LancheComboCreateOrConnectWithoutPedidosInput[]
   connect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
 }
 
-export type LancheComboUpdateManyWithoutPedidoNestedInput = {
-  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput> | Prisma.LancheComboCreateWithoutPedidoInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidoInput[]
-  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidoInput | Prisma.LancheComboCreateOrConnectWithoutPedidoInput[]
-  upsert?: Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidoInput | Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidoInput[]
-  createMany?: Prisma.LancheComboCreateManyPedidoInputEnvelope
+export type LancheComboUpdateManyWithoutPedidosNestedInput = {
+  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput> | Prisma.LancheComboCreateWithoutPedidosInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidosInput | Prisma.LancheComboCreateOrConnectWithoutPedidosInput[]
+  upsert?: Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidosInput | Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidosInput[]
   set?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   disconnect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   delete?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   connect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
-  update?: Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidoInput | Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidoInput[]
-  updateMany?: Prisma.LancheComboUpdateManyWithWhereWithoutPedidoInput | Prisma.LancheComboUpdateManyWithWhereWithoutPedidoInput[]
+  update?: Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidosInput | Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidosInput[]
+  updateMany?: Prisma.LancheComboUpdateManyWithWhereWithoutPedidosInput | Prisma.LancheComboUpdateManyWithWhereWithoutPedidosInput[]
   deleteMany?: Prisma.LancheComboScalarWhereInput | Prisma.LancheComboScalarWhereInput[]
 }
 
-export type LancheComboUncheckedUpdateManyWithoutPedidoNestedInput = {
-  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput> | Prisma.LancheComboCreateWithoutPedidoInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidoInput[]
-  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidoInput | Prisma.LancheComboCreateOrConnectWithoutPedidoInput[]
-  upsert?: Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidoInput | Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidoInput[]
-  createMany?: Prisma.LancheComboCreateManyPedidoInputEnvelope
+export type LancheComboUncheckedUpdateManyWithoutPedidosNestedInput = {
+  create?: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput> | Prisma.LancheComboCreateWithoutPedidosInput[] | Prisma.LancheComboUncheckedCreateWithoutPedidosInput[]
+  connectOrCreate?: Prisma.LancheComboCreateOrConnectWithoutPedidosInput | Prisma.LancheComboCreateOrConnectWithoutPedidosInput[]
+  upsert?: Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidosInput | Prisma.LancheComboUpsertWithWhereUniqueWithoutPedidosInput[]
   set?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   disconnect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   delete?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
   connect?: Prisma.LancheComboWhereUniqueInput | Prisma.LancheComboWhereUniqueInput[]
-  update?: Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidoInput | Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidoInput[]
-  updateMany?: Prisma.LancheComboUpdateManyWithWhereWithoutPedidoInput | Prisma.LancheComboUpdateManyWithWhereWithoutPedidoInput[]
+  update?: Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidosInput | Prisma.LancheComboUpdateWithWhereUniqueWithoutPedidosInput[]
+  updateMany?: Prisma.LancheComboUpdateManyWithWhereWithoutPedidosInput | Prisma.LancheComboUpdateManyWithWhereWithoutPedidosInput[]
   deleteMany?: Prisma.LancheComboScalarWhereInput | Prisma.LancheComboScalarWhereInput[]
 }
 
-export type LancheComboCreateWithoutPedidoInput = {
+export type LancheComboCreateWithoutPedidosInput = {
   nome: string
   descricao: string
   preco: runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type LancheComboUncheckedCreateWithoutPedidoInput = {
+export type LancheComboUncheckedCreateWithoutPedidosInput = {
   id?: number
   nome: string
   descricao: string
   preco: runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type LancheComboCreateOrConnectWithoutPedidoInput = {
+export type LancheComboCreateOrConnectWithoutPedidosInput = {
   where: Prisma.LancheComboWhereUniqueInput
-  create: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput>
+  create: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput>
 }
 
-export type LancheComboCreateManyPedidoInputEnvelope = {
-  data: Prisma.LancheComboCreateManyPedidoInput | Prisma.LancheComboCreateManyPedidoInput[]
-  skipDuplicates?: boolean
-}
-
-export type LancheComboUpsertWithWhereUniqueWithoutPedidoInput = {
+export type LancheComboUpsertWithWhereUniqueWithoutPedidosInput = {
   where: Prisma.LancheComboWhereUniqueInput
-  update: Prisma.XOR<Prisma.LancheComboUpdateWithoutPedidoInput, Prisma.LancheComboUncheckedUpdateWithoutPedidoInput>
-  create: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidoInput, Prisma.LancheComboUncheckedCreateWithoutPedidoInput>
+  update: Prisma.XOR<Prisma.LancheComboUpdateWithoutPedidosInput, Prisma.LancheComboUncheckedUpdateWithoutPedidosInput>
+  create: Prisma.XOR<Prisma.LancheComboCreateWithoutPedidosInput, Prisma.LancheComboUncheckedCreateWithoutPedidosInput>
 }
 
-export type LancheComboUpdateWithWhereUniqueWithoutPedidoInput = {
+export type LancheComboUpdateWithWhereUniqueWithoutPedidosInput = {
   where: Prisma.LancheComboWhereUniqueInput
-  data: Prisma.XOR<Prisma.LancheComboUpdateWithoutPedidoInput, Prisma.LancheComboUncheckedUpdateWithoutPedidoInput>
+  data: Prisma.XOR<Prisma.LancheComboUpdateWithoutPedidosInput, Prisma.LancheComboUncheckedUpdateWithoutPedidosInput>
 }
 
-export type LancheComboUpdateManyWithWhereWithoutPedidoInput = {
+export type LancheComboUpdateManyWithWhereWithoutPedidosInput = {
   where: Prisma.LancheComboScalarWhereInput
-  data: Prisma.XOR<Prisma.LancheComboUpdateManyMutationInput, Prisma.LancheComboUncheckedUpdateManyWithoutPedidoInput>
+  data: Prisma.XOR<Prisma.LancheComboUpdateManyMutationInput, Prisma.LancheComboUncheckedUpdateManyWithoutPedidosInput>
 }
 
 export type LancheComboScalarWhereInput = {
@@ -520,45 +458,60 @@ export type LancheComboScalarWhereInput = {
   descricao?: Prisma.StringFilter<"LancheCombo"> | string
   preco?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFilter<"LancheCombo"> | number
-  total?: Prisma.DecimalFilter<"LancheCombo"> | runtime.Decimal | runtime.DecimalJsLike | number | string
-  pedidoId?: Prisma.IntFilter<"LancheCombo"> | number
 }
 
-export type LancheComboCreateManyPedidoInput = {
-  id?: number
-  nome: string
-  descricao: string
-  preco: runtime.Decimal | runtime.DecimalJsLike | number | string
-  qtdItens: number
-  total: runtime.Decimal | runtime.DecimalJsLike | number | string
-}
-
-export type LancheComboUpdateWithoutPedidoInput = {
+export type LancheComboUpdateWithoutPedidosInput = {
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type LancheComboUncheckedUpdateWithoutPedidoInput = {
+export type LancheComboUncheckedUpdateWithoutPedidosInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
-export type LancheComboUncheckedUpdateManyWithoutPedidoInput = {
+export type LancheComboUncheckedUpdateManyWithoutPedidosInput = {
   id?: Prisma.IntFieldUpdateOperationsInput | number
   nome?: Prisma.StringFieldUpdateOperationsInput | string
   descricao?: Prisma.StringFieldUpdateOperationsInput | string
   preco?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
   qtdItens?: Prisma.IntFieldUpdateOperationsInput | number
-  total?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string
 }
 
+
+/**
+ * Count Type LancheComboCountOutputType
+ */
+
+export type LancheComboCountOutputType = {
+  pedidos: number
+}
+
+export type LancheComboCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  pedidos?: boolean | LancheComboCountOutputTypeCountPedidosArgs
+}
+
+/**
+ * LancheComboCountOutputType without action
+ */
+export type LancheComboCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the LancheComboCountOutputType
+   */
+  select?: Prisma.LancheComboCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * LancheComboCountOutputType without action
+ */
+export type LancheComboCountOutputTypeCountPedidosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.PedidoWhereInput
+}
 
 
 export type LancheComboSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -567,9 +520,8 @@ export type LancheComboSelect<ExtArgs extends runtime.Types.Extensions.InternalA
   descricao?: boolean
   preco?: boolean
   qtdItens?: boolean
-  total?: boolean
-  pedidoId?: boolean
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.LancheCombo$pedidosArgs<ExtArgs>
+  _count?: boolean | Prisma.LancheComboCountOutputTypeDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lancheCombo"]>
 
 export type LancheComboSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -578,9 +530,6 @@ export type LancheComboSelectCreateManyAndReturn<ExtArgs extends runtime.Types.E
   descricao?: boolean
   preco?: boolean
   qtdItens?: boolean
-  total?: boolean
-  pedidoId?: boolean
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lancheCombo"]>
 
 export type LancheComboSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -589,9 +538,6 @@ export type LancheComboSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.E
   descricao?: boolean
   preco?: boolean
   qtdItens?: boolean
-  total?: boolean
-  pedidoId?: boolean
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
 }, ExtArgs["result"]["lancheCombo"]>
 
 export type LancheComboSelectScalar = {
@@ -600,25 +546,20 @@ export type LancheComboSelectScalar = {
   descricao?: boolean
   preco?: boolean
   qtdItens?: boolean
-  total?: boolean
-  pedidoId?: boolean
 }
 
-export type LancheComboOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "preco" | "qtdItens" | "total" | "pedidoId", ExtArgs["result"]["lancheCombo"]>
+export type LancheComboOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "nome" | "descricao" | "preco" | "qtdItens", ExtArgs["result"]["lancheCombo"]>
 export type LancheComboInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
+  pedidos?: boolean | Prisma.LancheCombo$pedidosArgs<ExtArgs>
+  _count?: boolean | Prisma.LancheComboCountOutputTypeDefaultArgs<ExtArgs>
 }
-export type LancheComboIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
-}
-export type LancheComboIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
-  pedido?: boolean | Prisma.PedidoDefaultArgs<ExtArgs>
-}
+export type LancheComboIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
+export type LancheComboIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {}
 
 export type $LancheComboPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   name: "LancheCombo"
   objects: {
-    pedido: Prisma.$PedidoPayload<ExtArgs>
+    pedidos: Prisma.$PedidoPayload<ExtArgs>[]
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: number
@@ -626,8 +567,6 @@ export type $LancheComboPayload<ExtArgs extends runtime.Types.Extensions.Interna
     descricao: string
     preco: runtime.Decimal
     qtdItens: number
-    total: runtime.Decimal
-    pedidoId: number
   }, ExtArgs["result"]["lancheCombo"]>
   composites: {}
 }
@@ -1022,7 +961,7 @@ readonly fields: LancheComboFieldRefs;
  */
 export interface Prisma__LancheComboClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
-  pedido<T extends Prisma.PedidoDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.PedidoDefaultArgs<ExtArgs>>): Prisma.Prisma__PedidoClient<runtime.Types.Result.GetResult<Prisma.$PedidoPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+  pedidos<T extends Prisma.LancheCombo$pedidosArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.LancheCombo$pedidosArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PedidoPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1057,8 +996,6 @@ export interface LancheComboFieldRefs {
   readonly descricao: Prisma.FieldRef<"LancheCombo", 'String'>
   readonly preco: Prisma.FieldRef<"LancheCombo", 'Decimal'>
   readonly qtdItens: Prisma.FieldRef<"LancheCombo", 'Int'>
-  readonly total: Prisma.FieldRef<"LancheCombo", 'Decimal'>
-  readonly pedidoId: Prisma.FieldRef<"LancheCombo", 'Int'>
 }
     
 
@@ -1308,10 +1245,6 @@ export type LancheComboCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    */
   data: Prisma.LancheComboCreateManyInput | Prisma.LancheComboCreateManyInput[]
   skipDuplicates?: boolean
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.LancheComboIncludeCreateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1382,10 +1315,6 @@ export type LancheComboUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Ext
    * Limit how many LancheCombos to update.
    */
   limit?: number
-  /**
-   * Choose, which related nodes to fetch as well
-   */
-  include?: Prisma.LancheComboIncludeUpdateManyAndReturn<ExtArgs> | null
 }
 
 /**
@@ -1452,6 +1381,30 @@ export type LancheComboDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.I
    * Limit how many LancheCombos to delete.
    */
   limit?: number
+}
+
+/**
+ * LancheCombo.pedidos
+ */
+export type LancheCombo$pedidosArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Pedido
+   */
+  select?: Prisma.PedidoSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Pedido
+   */
+  omit?: Prisma.PedidoOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PedidoInclude<ExtArgs> | null
+  where?: Prisma.PedidoWhereInput
+  orderBy?: Prisma.PedidoOrderByWithRelationInput | Prisma.PedidoOrderByWithRelationInput[]
+  cursor?: Prisma.PedidoWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.PedidoScalarFieldEnum | Prisma.PedidoScalarFieldEnum[]
 }
 
 /**

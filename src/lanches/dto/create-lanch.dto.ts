@@ -1,33 +1,25 @@
-import { IsString, IsNotEmpty, IsInt } from 'class-validator'
+import { IsString, IsNotEmpty, IsInt, IsNumber, IsPositive } from 'class-validator'
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateLanchDto {
-    @ApiProperty({
-        example: 'Sanduíche',
-        description: 'Indica o nome do produto'
-
-    })
+    @ApiProperty({ example: 'Combo Mega Pipoca', description: 'Nome do combo' })
     @IsString()
     @IsNotEmpty()
     nome: string;
-
-    @ApiProperty({
-        example: 'Pão, picles, hambúrguer',
-        description: 'Indica a descrição do produto'
-
-    })
+  
+    @ApiProperty({ example: '1 Pipoca G, 2 Refris 500ml', description: 'O que vem no combo' })
     @IsString()
     @IsNotEmpty()
     descricao: string;
-
-
-    @ApiProperty({
-        example: 3,
-        description: 'Indica a quantidade do produto'
-
-    })
+  
+    @ApiProperty({ example: 45.90, description: 'Preço de venda' })
+    @IsNumber()
+    @IsPositive()
+    preco: number;
+  
+    @ApiProperty({ example: 3, description: 'Total de itens físicos no combo' })
     @IsInt()
-    @IsNotEmpty()
+    @IsPositive()
     qtdItens: number;
     
 }

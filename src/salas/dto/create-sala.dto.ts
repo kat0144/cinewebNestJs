@@ -24,14 +24,4 @@ export class CreateSalaDto {
     @IsPositive()
     capacidade: number;
 
-
-    @ApiProperty({
-        description: 'Lista de sessões que serão recebidas pela sala',
-        type: [CreateSessoeDto]
-    })
-    @IsArray()
-    @ValidateNested({ each: true }) 
-    @Type(() => CreateSessoeDto) 
-    ingressos: CreateSessoeDto[];
-
 }
